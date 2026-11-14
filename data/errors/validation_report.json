@@ -1,0 +1,97 @@
+{
+  "generated_at": "2026-11-14T14:49:46",
+  "summary": {
+    "raw_interactions": 100000,
+    "clean_interactions": 100000,
+    "quarantined_rows": 0,
+    "total_check_failures": 0,
+    "checks_run": 12,
+    "checks_failed": 0
+  },
+  "checks": [
+    {
+      "table": "users",
+      "check": "missing_primary_key",
+      "status": "PASS",
+      "records_failed": 0,
+      "detail": ""
+    },
+    {
+      "table": "users",
+      "check": "duplicate_primary_key",
+      "status": "PASS",
+      "records_failed": 0,
+      "detail": ""
+    },
+    {
+      "table": "items",
+      "check": "missing_primary_key",
+      "status": "PASS",
+      "records_failed": 0,
+      "detail": ""
+    },
+    {
+      "table": "items",
+      "check": "duplicate_primary_key",
+      "status": "PASS",
+      "records_failed": 0,
+      "detail": ""
+    },
+    {
+      "table": "interactions",
+      "check": "missing_values",
+      "status": "PASS",
+      "records_failed": 0,
+      "detail": ""
+    },
+    {
+      "table": "interactions",
+      "check": "incorrect_data_types",
+      "status": "PASS",
+      "records_failed": 0,
+      "detail": ""
+    },
+    {
+      "table": "interactions",
+      "check": "invalid_rating",
+      "status": "PASS",
+      "records_failed": 0,
+      "detail": "allowed [1, 5]"
+    },
+    {
+      "table": "interactions",
+      "check": "invalid_timestamp",
+      "status": "PASS",
+      "records_failed": 0,
+      "detail": "allowed [1990-01-01, 2026-12-31]"
+    },
+    {
+      "table": "interactions",
+      "check": "duplicate_keys",
+      "status": "PASS",
+      "records_failed": 0,
+      "detail": ""
+    },
+    {
+      "table": "interactions",
+      "check": "orphan_user_ref",
+      "status": "PASS",
+      "records_failed": 0,
+      "detail": ""
+    },
+    {
+      "table": "interactions",
+      "check": "orphan_item_ref",
+      "status": "PASS",
+      "records_failed": 0,
+      "detail": ""
+    },
+    {
+      "table": "interactions",
+      "check": "TOTAL_CLEAN_ROWS",
+      "status": "PASS",
+      "records_failed": 0,
+      "detail": "100000/100000 rows retained"
+    }
+  ]
+}
