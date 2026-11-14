@@ -1,0 +1,87 @@
+# =============================================================================
+# Configuration for the End-to-End Recommendation Pipeline
+# =============================================================================
+
+project:
+  name: recommendation-pipeline
+  seed: 42
+
+# ---------------------------------------------------------------------------
+# Data ingestion
+# ---------------------------------------------------------------------------
+ingestion:
+  # source: "movielens" downloads MovieLens 100K; "synthetic" generates data.
+  # If "movielens" fails (e.g. no network), the pipeline falls back to synthetic.
+  source: movielens
+  movielens_url: https://files.grouplens.org/datasets/movielens/ml-100k.zip
+  allow_synthetic_fallback: true
+  synthetic:
+    n_users: 800
+    n_items: 500
+    n_interactions: 40000
+    # Fraction of interactions deliberately corrupted so the validation
+    # stage has invalid records to catch and quarantine (demonstration).
+    corruption_rate: 0.03
+
+# ---------------------------------------------------------------------------
+# Data validation
+# ---------------------------------------------------------------------------
+validation:
+  rating_min: 1
+  rating_max: 5
+  # Timestamps outside this inclusive range are flagged as invalid.
+  timestamp_min: "1990-01-01"
+  timestamp_max: "2026-12-31"
+
+# ---------------------------------------------------------------------------
+# Preparation & train/test split
+# ---------------------------------------------------------------------------
+preparation:
+  # Per-user temporal hold-out: the most recent `test_fraction` of each
+  # user's interactions go to the test set (a leave-last-out time split).
+  test_fraction: 0.2
+  min_interactions_per_user: 5   # users below this are dropped (too sparse)
+  min_interactions_per_item: 5
+
+# ---------------------------------------------------------------------------
+# Features
+# ---------------------------------------------------------------------------
+features:
+  recent_window_days: 30         # for "interactions in last N days" features
+
+# ---------------------------------------------------------------------------
+# Model training
+# ---------------------------------------------------------------------------
+training:
+  relevance_threshold: 4.0       # rating >= this counts as a "relevant" item
+  matrix_factorization:
+    n_factors: 50
+    n_epochs: 30
+    lr: 0.01
+    reg: 0.05
+
+# ---------------------------------------------------------------------------
+# Evaluation
+# ---------------------------------------------------------------------------
+evaluation:
+  k: 10                          # top-K for ranking metrics (5 or 10)
+  relevance_threshold: 4.0
+
+# ---------------------------------------------------------------------------
+# MLflow experiment tracking
+# ---------------------------------------------------------------------------
+mlflow:
+  experiment_name: recommendation-pipeline
+  tracking_uri: "./mlruns"
+
+# ---------------------------------------------------------------------------
+# Paths (relative to project root)
+# ---------------------------------------------------------------------------
+paths:
+  raw: data/raw
+  processed: data/processed
+  features: data/features
+  errors: data/errors
+  models: models
+  reports: reports
+  logs: logs
