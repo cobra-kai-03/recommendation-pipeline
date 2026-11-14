@@ -1,0 +1,16 @@
+user_id,item_id,rating,timestamp,event_type,_error_reason
+33,144,,1641069202,rating,missing required value
+57,170,,1642175314,rating,missing required value
+103,25,,1642589856,rating,missing required value
+107,170,99.0,1641444635,rating,rating out of range
+237,168,99.0,1641802412,rating,rating out of range
+207,77,99.0,1641838953,rating,rating out of range
+127,130,4.0,-5,rating,timestamp unparseable/out of range
+49,94,2.0,-5,rating,timestamp unparseable/out of range
+195,115,2.0,-5,rating,timestamp unparseable/out of range
+10300,73,5.0,1645528108,rating,"duplicate (user_id,item_id)"
+10300,33,3.0,1650187376,rating,"duplicate (user_id,item_id)"
+10300,163,4.0,1653542131,rating,"duplicate (user_id,item_id)"
+223,10200,1.0,1641302496,rating,unknown user_id or item_id
+10300,15,4.0,1641686787,rating,unknown user_id or item_id
+180,10200,4.0,1641756923,rating,unknown user_id or item_id

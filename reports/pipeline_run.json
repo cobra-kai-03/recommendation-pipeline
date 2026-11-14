@@ -1,0 +1,43 @@
+{
+  "started_at": "2026-11-14T14:49:29",
+  "finished_at": "2026-11-14T14:50:10",
+  "overall_status": "SUCCESS",
+  "total_seconds": 41.67,
+  "stages": [
+    {
+      "stage": "ingestion",
+      "status": "SUCCESS",
+      "seconds": 16.71
+    },
+    {
+      "stage": "validation",
+      "status": "SUCCESS",
+      "seconds": 0.18
+    },
+    {
+      "stage": "preparation",
+      "status": "SUCCESS",
+      "seconds": 0.84
+    },
+    {
+      "stage": "transformation",
+      "status": "SUCCESS",
+      "seconds": 0.35
+    },
+    {
+      "stage": "features",
+      "status": "SUCCESS",
+      "seconds": 0.24
+    },
+    {
+      "stage": "training",
+      "status": "SUCCESS",
+      "seconds": 22.48
+    },
+    {
+      "stage": "evaluation",
+      "status": "SUCCESS",
+      "seconds": 0.87
+    }
+  ]
+}
